@@ -115,7 +115,7 @@ namespace Servidor
                     data2 = Encoding.Default.GetString(buffer);
                     Console.WriteLine("----------------------------");
                     Console.WriteLine("Resposta: " + data2);
-                    Console.WriteLine("#############################");
+                    Console.WriteLine("################################");
                     Console.WriteLine("[1] para nova operação.");
                     var op = Console.ReadLine();
                     if (!op.Equals("1"))

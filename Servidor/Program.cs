@@ -68,7 +68,7 @@ namespace Servidor
                                     {
                                         var filtrados = dados.Where(x => x.nomeVendedor.Equals(msg.nomeVendedor));
                                         var totalVendas = filtrados.Sum(x => x.valorVendido);
-                                        data = $"O total de vendas de {msg.nomeVendedor} foi de: {totalVendas}.";
+                                        data = $"O total de vendas de {msg.nomeVendedor} foi de: R${totalVendas}.";
                                     }
                                     break;
                                 }
@@ -97,7 +97,7 @@ namespace Servidor
                                     if (dados.Count > 0)
                                     {
                                         var filtrados = dados.GroupBy(x => x.nomeVendedor).Select(y => new { nomeVendedor = y.Key, valorVendido = y.Sum(x => x.valorVendido) } ).ToList();
-                                        var totalVendas = filtrados.Sum(x => x.valorVendido);
+                                        var totalVendas = filtrados.Max(x => x.valorVendido);
                                         var melhorVendedor = filtrados.Where(x => x.valorVendido == totalVendas).FirstOrDefault()?.nomeVendedor;
                                         data = $"O melhor vendedor é {melhorVendedor}";
                                     }
