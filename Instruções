@@ -1,0 +1,3 @@
+Necessita ter visual studio 2022 com .net 6;
+
+As duas aplicações se encontram no mesmo projeto, para rodar é preciso abrir 2 instâncias do visual studio e executar o servidor em uma e o cliente em outra. 
