@@ -107,7 +107,7 @@ namespace Servidor
                                 {
                                     if (dados.Count > 0)
                                     {
-                                        var filtrados = dados.GroupBy(x => x.codigoLoja).Select(x => x.FirstOrDefault()).ToList();
+                                        var filtrados = dados.GroupBy(x => x.codigoLoja).Select(y => new { codigoLoja = y.Key, valorVendido = y.Sum(x => x.valorVendido) }).ToList();
                                         var totalVendas = filtrados.Max(x => x.valorVendido);
                                         var melhorVendedor = filtrados.Where(x => x.valorVendido == totalVendas).FirstOrDefault()?.codigoLoja;
                                         data = $"A melhor loja é {melhorVendedor}";
